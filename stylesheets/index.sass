@@ -1,0 +1,296 @@
+$lightestgreen: #77c4a5
+$lightgreen: #68ab90
+$darkgreen: #4e806c
+
+html, body
+  height: 100%
+  -webkit-text-size-adjust: 100%
+  -webkit-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  cursor: default
+
+img
+  width: auto
+  height: auto
+  max-width: 300px
+  max-height: 300px
+
+body
+  font-size: 16px
+  font-family: "ff-tisa-sans-web-pro", sans-serif
+
+  &.scroll
+    overflow-y: scroll
+
+  *
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+
+.background
+  position: absolute
+  top: 8px
+  left: 8px
+  right: 8px
+  bottom: 8px
+  background-color: $lightestgreen
+  z-index: -1
+
+#home
+  position: relative
+  min-height: 100%
+  padding: 80px
+  background: white
+  z-index: 2
+
+  @media screen and (max-width: 800px)
+    padding: 40px
+
+  #logo
+    width: 225px
+    height: 50px
+    background: url(/images/logo.png?embed) center
+    background-size: 100%
+    margin-bottom: 80px
+
+  h1, p
+    width: 620px
+
+    @media screen and (max-width: 800px)
+      width: 100%
+
+  h1
+    display: block
+    color: white
+    font-size: 40px
+    line-height: 46px
+    margin-bottom: 40px
+
+    em
+      font-style: italic
+
+    @media screen and (max-width: 800px)
+      font-size: 30px
+      line-height: 36px
+
+  p
+    font-size: 18px
+    line-height: 27px
+    color: $darkgreen
+    margin-bottom: 20px
+
+    a
+      color: $darkgreen
+      text-decoration: none
+      border-bottom: 2px solid $lightgreen
+
+  #recent-galleries > a
+    margin-right: 10px
+
+  .button-and-hint
+    position: absolute
+    left: 80px
+    bottom: 80px
+
+    @media screen and (max-width: 800px), screen and (max-height: 650px)
+      position: relative
+      left: auto
+      bottom: auto
+      margin-top: 80px
+
+  .button
+    float: left
+    position: relative
+    width: 220px
+    height: 50px
+    border: none
+    background: $lightgreen url(/images/upload.png?embed) no-repeat
+    background-size: 50px
+    border-radius: 25px
+    padding: 0 15px 0 55px
+    margin-right: 20px
+    text-align: center
+    color: white
+    line-height: 50px
+    text-transform: uppercase
+    overflow: hidden
+
+    input[type=file]
+      position: absolute
+      display: block
+      height: 50px
+      font-size: 30px
+      top: 0
+      left: -420px
+      opacity: 0
+      filter: alpha(opacity=0)
+      cursor: pointer !important
+
+  .hint
+    float: left
+    line-height: 50px
+    color: $darkgreen
+
+    @media screen and (max-width: 800px)
+      display: none
+
+  #footer
+    display: block
+    position: absolute
+    bottom: 80px
+    right: 80px
+    line-height: 50px
+    color: $lightgreen
+    text-decoration: none
+
+    @media screen and (max-width: 800px)
+      position: relative
+      bottom: auto
+      right: auto
+      margin-top: 40px
+
+#error, #drop-zone
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  z-index: 3
+  background-color: white
+
+  // We need to cover the drop zone to prevent flickering when hovering text
+  .cover
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 1
+
+  .caption
+    display: block
+    position: absolute
+    top: 50%
+    left: 50%
+    margin: -25px 0 0 -325px
+    width: 650px
+    height: 50px
+    line-height: 60px
+    color: white
+    font-size: 32px
+    padding-left: 70px
+    background-position: left center
+    background-repeat: no-repeat
+    background-size: 50px
+
+#drop-zone .caption
+  background-image: url(/images/plus.png?embed)
+
+#error .caption
+  background-image: url(/images/error.png?embed)
+
+#images
+  padding: 6px
+  overflow: hidden
+
+  .photo
+    float: left
+    position: relative
+    background-position: center
+    background-size: 100% 100%
+    background-color: $lightestgreen
+    margin: 2px
+
+    .delete
+      position: absolute
+      top: 15px
+      right: 15px
+      width: 17px
+      height: 17px
+      background: url(/images/x.png?embed)
+      background-size: 100%
+      opacity: 0
+      -webkit-transition-delay: 0
+      -webkit-transition: all 0.1s
+
+    &:hover .delete
+      opacity: 1
+      -webkit-transition-delay: 0.5s
+
+    .progress
+      position: absolute
+      bottom: 16px
+      left: 16px
+      right: 16px
+      border: 2px solid white
+      height: 16px
+      border-radius: 8px
+      background: rgba(0,0,0,0.25)
+      box-shadow: 0 0px 0 1px rgba(0,0,0,0.25)
+
+      > div
+        position: absolute
+        top: 2px
+        left: 2px
+        bottom: 2px
+        right: 2px
+
+        > div
+          background: white
+          height: 100%
+          width: 0%
+          border-radius: 4px
+          -webkit-transition: all 0.5s
+
+#zoom
+  z-index: 2
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background-color: hsl(0,0%,20%)
+
+  .arrow
+    position: absolute
+    top: 0
+    bottom: 0
+    width: 100px
+    background-size: 50px
+    background-position: center
+    background-repeat: no-repeat
+    z-index: 1
+
+    &.left
+      left: 0
+      background-image: url('/images/arrow-left.png?embed')
+
+    &.right
+      right: 0
+      background-image: url('/images/arrow-right.png?embed')
+
+  .photo
+    position: absolute
+    background-color: black
+    background-size: 100% 100%
+    box-shadow: 1px 0 0 0 rgba(255, 255, 255, 0.1) inset, 0 0 1px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.5)
+
+  .background
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background-color: hsl(0,0%,20%)
+    background-size: 100% 100%
+    z-index: -1
+
+    &:after
+      content: ""
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      background-image: url(/images/grain.png?embed)
+      z-index: 1
